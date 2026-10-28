@@ -1,0 +1,21 @@
+# চালু:   docker compose up -d --build
+# লগ:    docker compose logs -f
+# বন্ধ:   docker compose down
+# সেটিংস .env ফাইল থেকে আসে (নমুনা: .env.example)
+services:
+  dashboard:
+    build: .
+    image: crypto-predictor:latest
+    container_name: crypto-predictor
+    restart: unless-stopped
+    environment:
+      APP_PASSWORD: ${APP_PASSWORD:-}
+      MAX_CANDLES: ${MAX_CANDLES:-5000}
+    ports:
+      # BIND_ADDR=127.0.0.1 দিলে শুধু nginx (ডোমেইন + HTTPS) দিয়ে ঢোকা যাবে
+      - "${BIND_ADDR:-0.0.0.0}:${HOST_PORT:-8501}:8501"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

@@ -1,0 +1,4 @@
+# Windows থেকে GitHub-এ তুললেও শেল স্ক্রিপ্ট LF আর .bat ফাইল CRLF রাখবে
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.bat text eol=crlf

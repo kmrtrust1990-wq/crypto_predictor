@@ -1,0 +1,14 @@
+[server]
+headless = true
+maxUploadSize = 50
+runOnSave = false
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+# দর্শকদের কাছ থেকে Deploy/Rerun/Clear cache এর মতো ডেভেলপার অপশন লুকানো
+toolbarMode = "viewer"
+# অপ্রত্যাশিত ত্রুটিতে ব্রাউজারে শুধু ত্রুটির ধরন দেখাবে, ভেতরের কোড/পথ নয়
+showErrorDetails = "type"
